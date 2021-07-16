@@ -6,7 +6,7 @@
 
     <groupId>dev.hoksv</groupId>
     <artifactId>hoksvcommon</artifactId>
-    <version>1.3</version>
+    <version>1.4</version>
 
     <properties>
         <java.version>1.8</java.version>
@@ -46,6 +46,16 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <relocations>
+                                <relocation>
+                                    <pattern>redis.clients.jedis</pattern>
+                                    <shadedPattern>dev.hoksv.common.shaded.redis.clients.jedis</shadedPattern>]
+                                </relocation>
+                                <relocation>
+                                    <pattern>org.apache.commons</pattern>
+                                    <shadedPattern>dev.hoksv.common.shaded.org.apache.commons</shadedPattern>
+                                </relocation>
+                            </relocations>
                         </configuration>
                     </execution>
                 </executions>
