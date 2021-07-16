@@ -5,13 +5,10 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.JedisPubSub;
 
-import javax.swing.text.html.Option;
 import java.io.Closeable;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
-import java.util.OptionalInt;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Logger;
@@ -65,6 +62,7 @@ public class Redis extends JedisPubSub implements Closeable {
             try {
                 logger.info("Creating new thread for " + channels.size() + " channels");
                 jedisResource.subscribe(jedisSub, objects);
+                jedisPool.returnResource(jedisResource);
             } catch(Exception e) {
                 e.printStackTrace();
             }
@@ -77,6 +75,6 @@ public class Redis extends JedisPubSub implements Closeable {
 
     @Override
     public void close() {
-
+        jedisPool.close();
     }
 }
