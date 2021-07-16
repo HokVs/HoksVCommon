@@ -18,8 +18,8 @@
     <distributionManagement>
         <repository>
             <id>github</id>
-            <name>GitHub hoksv Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/hoksv/hoksvcommon</url>
+            <name>GitHub HokVs Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/HokVs/HoksVCommon</url>
         </repository>
     </distributionManagement>
 
