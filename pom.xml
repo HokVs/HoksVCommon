@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dev.hoksv</groupId>
-    <artifactId>HoksVCommon</artifactId>
+    <artifactId>hoksvcommon</artifactId>
     <version>1.2</version>
 
     <properties>
