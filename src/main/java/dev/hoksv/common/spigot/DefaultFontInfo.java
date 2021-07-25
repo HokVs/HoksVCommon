@@ -1,5 +1,6 @@
 package dev.hoksv.common.spigot;
 
+
 public enum DefaultFontInfo {
 
     A('A', 5),

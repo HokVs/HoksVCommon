@@ -14,6 +14,12 @@ import java.util.concurrent.Executors;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+/**
+ * <p>Redis class.</p>
+ *
+ * @author andyl
+ * @version $Id: $Id
+ */
 public class Redis extends JedisPubSub implements Closeable {
     private final Logger logger = Logger.getLogger("Redis");
 
@@ -21,10 +27,23 @@ public class Redis extends JedisPubSub implements Closeable {
 
     private JedisPool jedisPool = null;
 
+    /**
+     * <p>Constructor for Redis.</p>
+     *
+     * @param host a {@link java.lang.String} object
+     * @param port a int
+     */
     public Redis(String host, int port) {
         initializePool(host, port, null);
     }
 
+    /**
+     * <p>Constructor for Redis.</p>
+     *
+     * @param host a {@link java.lang.String} object
+     * @param port a int
+     * @param password a {@link java.lang.String} object
+     */
     public Redis(String host, int port, String password) {
         initializePool(host, port, password);
     }
@@ -51,6 +70,11 @@ public class Redis extends JedisPubSub implements Closeable {
                 : new JedisPool(poolConfig, host, port, 3000, password);
     }
 
+    /**
+     * <p>subscribe.</p>
+     *
+     * @param listener a {@link dev.hoksv.common.jedis.RedisListener} object
+     */
     public void subscribe(RedisListener ...listener) {
         Jedis jedisResource = jedisPool.getResource();
         RedisSubscriber jedisSub = new RedisSubscriber(listener);
@@ -69,10 +93,16 @@ public class Redis extends JedisPubSub implements Closeable {
         });
     }
 
+    /**
+     * <p>getJedis.</p>
+     *
+     * @return a {@link redis.clients.jedis.Jedis} object
+     */
     public Jedis getJedis() {
         return jedisPool.getResource();
     }
 
+    /** {@inheritDoc} */
     @Override
     public void close() {
         jedisPool.close();

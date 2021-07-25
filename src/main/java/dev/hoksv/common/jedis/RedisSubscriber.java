@@ -17,6 +17,7 @@ public class RedisSubscriber extends JedisPubSub {
             this.listeners.put(listener.getChannel(), listener);
         }
     }
+
     @Override
     public void onMessage(String channel, String message) {
         RedisListener listener = listeners.get(channel);
@@ -24,10 +25,12 @@ public class RedisSubscriber extends JedisPubSub {
             listener.onMessage(message);
 
     }
+
     @Override
     public void onSubscribe(String channel, int subscribedChannels) {
         logger.info("Client has subscribed to channel " + channel + " (" + subscribedChannels + ") total");
     }
+
 
     @Override
     public void onUnsubscribe(String channel, int subscribedChannels) {
