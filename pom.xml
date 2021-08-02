@@ -6,7 +6,7 @@
 
     <groupId>dev.hoksv</groupId>
     <artifactId>hoksvcommon</artifactId>
-    <version>1.4.3</version>
+    <version>1.4.4</version>
 
     <properties>
         <java.version>1.8</java.version>
@@ -78,28 +78,36 @@
         </repository>
     </repositories>
     <dependencies>
+        <!-- Spigot API -->
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
             <version>1.16.5-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+        <!-- Redis -->
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
-            <version>3.6.0</version>
+            <version>3.6.3</version>
+        </dependency>
+        <!-- Hikari -->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>5.0.0</version>
         </dependency>
         <!-- Testing -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
+            <version>5.7.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

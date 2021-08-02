@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 /**
  * Random collection
- * @param <T>
+ * @param <T> Object to put in the collection
  */
 public class RandomCollection<T> {
 
@@ -22,6 +22,11 @@ public class RandomCollection<T> {
         this.random = rand;
     }
 
+    /**
+     * Add an element to the collection
+     * @param chance The chance from 1-100
+     * @param obj Object to add
+     */
     public void add(double chance, T obj) {
         if (chance <= 0.0D) return;
 
@@ -29,14 +34,25 @@ public class RandomCollection<T> {
         map.put(total, obj);
     }
 
+    /**
+     *  Size of the map
+     * @return size of the map
+     */
     public int size() {
         return map.size();
     }
 
+    /**
+     * Clears the map
+     */
     public void clear() {
         map.clear();
     }
 
+    /**
+     * Gets the next element the collection
+     * @return The next element in the collection.
+     */
     public T next() {
         if (map.isEmpty()) return null;
         try {
