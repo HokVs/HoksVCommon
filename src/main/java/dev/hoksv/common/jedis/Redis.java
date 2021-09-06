@@ -94,6 +94,15 @@ public class Redis extends JedisPubSub implements Closeable {
     }
 
     /**
+     * Publishes a jedis message
+     * @param channel the channel to send through
+     * @param message the message
+     */
+    public void publish(String channel, String message) {
+        this.getJedis().publish(channel, message);
+    }
+
+    /**
      * <p>getJedis.</p>
      *
      * @return a {@link redis.clients.jedis.Jedis} object
